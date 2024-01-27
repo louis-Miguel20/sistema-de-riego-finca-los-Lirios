@@ -31,10 +31,45 @@
 						<li><a href="index.html" face ="time, serif" SIZE=20 style = "color:whitesmoke">Inicio</a></li>
 						<li class="current" face ="time, serif" SIZE=20 style = "color:whitesmoke"><a href="Graficas.html">Graficas</a></li>    
 						<li><a href="Cultivos.html" face ="time, serif" SIZE=20 style = "color:whitesmoke">Cultivos</a></li>
+						<li><a href="pr.html" face ="time, serif" SIZE=20 style = "color:whitesmoke">prueba</a></li>
 					</ul>    							
 				</nav>
+				<style>
+					nav a {
+						position: relative;
+						font-size: 1.1em;
+						font-weight: 500;
+						color: #333;
+						text-decoration: none;
+						padding: 6px 20px;
+						transition: 0.5s;
+						}
+						nav a:hover {
+						color: #8ef;
+						}
+						nav a span {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						z-index: -1;
+						border-bottom: 2px solid #bef;
+						border-radius: 15px;
+						transform: scale(0) translateY(50px); /* Fixed typo in translateY */
+						opacity: 0;
+						transition: 0.5s;
+						}
+						nav a:hover span {
+						transform: scale(1) translateY(0); /* Fixed typo in translateY */
+						opacity: 1;
+						}
+				</style>
 			</center>
-			</div>
+
+			 
+			</div> 
+			
 			<section class="wrapper style1">
 				<div class="container">
 				<div class="row">
@@ -47,7 +82,7 @@
 				</br> 
 				
 				<div id="container3" title="Grafica humedad ambiente contra tiempo" style="height: 400px; width: 1000px; min-width: 310px"></div>
-		<script src="comunicacion MQTT.js"></script>	
+		 <script src="comunicacion MQTT.js"></script>	
 		<script>   
 		estadoRiego = "OFF";
         humSuelo = 1;
@@ -236,6 +271,38 @@
 </div>
 </div>
 </section>
+<section style="position: absolute; top: 700px; left: 70%;">
+				<div>
+					<a>Riego manual </a>
+					<button type='button' onclick='OnOff("ON")'>ON</button>
+					<button type='button' onclick='OnOff("OFF")'>OFF</button>
+				 </div>
+
+				<!--funcion range para aumentar y diminuir salida analogica del rango de humedad -->	
+				</br></br></br></br></br></br>			
+				<div > 
+					<a>Historial de Riego </a>
+					<input type="range" id="myRange"  min="0" max="100"  onmouseup="enviarSalidaAnalogica()">
+					<table>
+						<tr>
+						  <th>Fecha</th>
+						  <th>Humedad</th>
+						  <th>duración</th>
+						</tr>
+						<tr>
+						  <td></td>
+						  <td></td>
+						  <td></td>
+						</tr>
+						<tr>
+						  <td></td>
+						  <td></td>
+						  <td></td>
+						</tr>
+					  </table>
+					  
+				 </div>
+			   </section> 
 		<!-- Footer -->
 		<div id="footer">
 				<div class="container">
